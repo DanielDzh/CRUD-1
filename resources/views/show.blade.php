@@ -3,7 +3,7 @@
 @section('title', 'User ' .$user->name)
 
 @section('content')
-<a type="button" class="btn btn-secondary mt-2" href="{{ route('users.index') }}">Back to Users</a>
+ <a type="button" class="btn btn-secondary mt-2" href="{{ route('users.index') }}">Back to Users</a>
 <div class="card" style="width: 18rem;">
   <ul class="list-group list-group-flush">
     <li class="list-group-item">Id: {{ $user->id }}</li>
@@ -19,8 +19,10 @@
             @csrf
             @method('DELETE')
             <button class="btn btn-danger" type = "submit">Delete</button>
-          </form>
+          </form> 
 
+
+          
 <!-- {{dd ($user) }} -->
 
 @endsection

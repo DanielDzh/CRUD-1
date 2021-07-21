@@ -14,7 +14,7 @@ class UsersController extends Controller
      */
     public function index()
     {
-        $users = User::get();
+        $users = User::paginate();        // get
         return view('index', compact('users'));
     }
 
@@ -36,8 +36,8 @@ class UsersController extends Controller
      */
     public function store(Request $request)
     {
-        User::create($request->only(['name', 'email']));
-        return redirect()->route('users.index');
+         User::create($request->only(['name', 'email']));
+          return redirect()->route('users.index');
     }
 
     /**

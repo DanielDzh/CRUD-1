@@ -1,4 +1,4 @@
-@extends('layout');
+@extends('layout')
 
 @section('title', isset($user) ? 'Update '.$user->name : 'Create user')
 
@@ -20,6 +20,9 @@
                 <input name = "name" 
                 value = "{{ isset($user) ? $user->name : null }}"
                 type="text" class="form-control" placeholder="Name" aria-label="name">
+                <!-- @error('name')
+                <div class = "alert alert-danger">{{ $message }}</div>
+                @enderror -->
             </div>
             
         </div>
