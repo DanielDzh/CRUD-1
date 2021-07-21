@@ -37,7 +37,7 @@ class UsersController extends Controller
     public function store(Request $request)
     {
          User::create($request->only(['name', 'email']));
-          return redirect()->route('users.index');
+          return redirect()->route('users.index')->withSuccess('Created user '.$request->name);
     }
 
     /**
@@ -72,7 +72,7 @@ class UsersController extends Controller
     public function update(Request $request, User $user)
     {
         $user->update($request->only(['name', 'email']));
-        return redirect()->route('users.index');
+        return redirect()->route('users.index')->withSuccess('Updated user '.$user->name);
     }
 
     /**
@@ -84,6 +84,6 @@ class UsersController extends Controller
     public function destroy(User $user)
     {
         $user->delete();
-        return redirect()->route('users.index');
+        return redirect()->route('users.index')->withDanger('Deleted user '.$user->name);
     }
 }
